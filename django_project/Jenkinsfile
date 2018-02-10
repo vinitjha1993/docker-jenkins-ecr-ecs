@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("vinitjha/project")
+        app = docker.build("vinit_repo")
     }
 
     stage('Test image') {
