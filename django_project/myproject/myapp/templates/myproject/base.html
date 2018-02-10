@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}base{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  </head>
+  <body class="body" >
+    <header>
+      <h1>My New Site</h1>
+      {% if user.is_authenticated %}
+      click<a href="{% url 'user_info' %}"><font color="red"> here </font></a>for user info<br>
+        <a  href="{% url 'logout' %}"><font color="red">Logout</font></a>
+      {% else %}
+      <a  href="{% url 'login' %}"><font color="red">login</font></a> / <a href="{% url 'signup' %}"><font color="red">signup</font></a>
+      {% endif %}
+      <hr>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+
+    </main>
+
+  </body>
+</html>

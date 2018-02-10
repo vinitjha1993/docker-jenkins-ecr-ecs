@@ -1,0 +1,33 @@
+{% extends 'myproject/base.html' %}
+{% block content %}
+
+<div class="container" align="center" >
+  <div class="row">
+    <div class="col-md-12">
+<table BGCOLOR="#FFFFCC" border="1"
+CELLSPACING="1" CELLPADDING="5">
+    <tr BGCOLOR="yellow">
+        <th>  USERNAME  </th>
+
+        <th>  FIRST NAME  </th>
+        <th>  LAST NAME  </th>
+
+        <th>  EMAIL   </th>
+
+
+    </tr>
+    {% for item in query_results %}
+    <tr BGCOLOR="green">
+        <td >  {{ item.username }}  </td>
+
+        <td>  {{ item.first_name }}  </td>
+        <td>  {{ item.last_name }}  </td>
+
+        <td>  {{ item.email }}  </td>
+    </tr>
+    {% endfor %}
+</table>
+    </div>
+  </div>
+</div>
+{% endblock %}
