@@ -10,6 +10,7 @@ node {
     stage('Build image') {
         steps {
                 sh "docker-compose up"
+                }
 
         /* This builds the actual image; synonymous to
          * docker build on the command line */
