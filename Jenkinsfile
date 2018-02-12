@@ -1,6 +1,8 @@
 node {
     def app
-    
+    environment {      
+        COMPOSE_FILE = "docker-compose.yml"       
+    }
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -9,7 +11,7 @@ node {
 
     stage('Build image') {
         steps {
-                sh "docker-compose up"
+                sh "docker-compose up -d"
                 }
 
         /* This builds the actual image; synonymous to
