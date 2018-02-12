@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("r-v-repo")
+        app = docker.build("r-v-repo2")
     }
 
 
@@ -20,7 +20,7 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        docker.withRegistry('https://649347328056.dkr.ecr.us-west-2.amazonaws.com/r-v-repo', 'ecr:us-west-2:docker-jenkins-ecr') {
+        docker.withRegistry('https://649347328056.dkr.ecr.us-west-2.amazonaws.com/r-v-repo2', 'ecr:us-west-2:docker-jenkins-ecr') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
